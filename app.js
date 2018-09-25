@@ -16,14 +16,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Body parser middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Enable CORS
 app.use(cors());
 
 app.use('/poll', poll);
 
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Start server
-app.listen(port, () => console.log(`Server started on port ${port}`))
+app.listen(PORT, () => console.log(`Server started on port ${port}`));
